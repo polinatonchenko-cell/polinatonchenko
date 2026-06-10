@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Имя Фамилия — Дизайнер</title>
+<meta name="description" content="Портфолио дизайнера: сайты, брендинг, фирменный стиль. Избранные работы и контакты." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+/* ====== ТОКЕНЫ ====== */
+:root{
+  --bg:#FFFFFF;
+  --bg-soft:#F7F8FA;
+  --ink:#0F172A;
+  --muted:#64748B;
+  --line:#E7EAF0;
+  --accent:#6366F1;
+  --accent-2:#8B5CF6;
+  --accent-3:#EC4899;
+  --radius:20px;
+  --radius-lg:28px;
+  --shadow-sm:0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.04);
+  --shadow:0 10px 30px -12px rgba(15,23,42,.18);
+  --shadow-lg:0 24px 60px -20px rgba(15,23,42,.25);
+  --maxw:1120px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  letter-spacing:-0.01em;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+h1,h2,h3{line-height:1.1;letter-spacing:-0.03em;font-weight:700}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.muted{color:var(--muted)}
+
+/* ====== ГРАДИЕНТНЫЙ ТЕКСТ ====== */
+.grad{
+  background:linear-gradient(120deg,var(--accent),var(--accent-2) 45%,var(--accent-3));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+/* ====== НАВИГАЦИЯ (glass) ====== */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(160%) blur(14px);background:rgba(255,255,255,.72);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{font-weight:700;font-size:19px;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(120deg,var(--accent),var(--accent-3))}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-weight:500;font-size:15px;color:var(--muted);padding:9px 14px;border-radius:10px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--ink);background:var(--bg-soft)}
+.nav-cta{font-weight:600;font-size:15px;color:#fff;background:var(--ink);padding:10px 20px;border-radius:12px;transition:transform .2s,box-shadow .2s;box-shadow:var(--shadow-sm)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+
+/* ====== HERO ====== */
+.hero{position:relative;padding:96px 0 84px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);padding:7px 14px;border-radius:999px;margin-bottom:26px}
+.pill .live{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.15)}
+.hero h1{font-size:clamp(40px,6.4vw,72px);font-weight:800;letter-spacing:-0.04em}
+.hero p.lead{margin-top:22px;font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:520px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;padding:14px 26px;border-radius:14px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:var(--shadow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{background:var(--bg-soft);transform:translateY(-2px)}
+
+/* ====== BLOB ====== */
+.hero-art{position:relative;height:420px;display:flex;align-items:center;justify-content:center}
+.blob{
+  position:absolute;width:380px;height:380px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2) 50%,var(--accent-3));
+  border-radius:42% 58% 63% 37% / 41% 44% 56% 59%;
+  filter:blur(2px);
+  animation:morph 12s ease-in-out infinite,float 8s ease-in-out infinite;
+  box-shadow:0 40px 80px -20px rgba(99,102,241,.5);
+}
+.blob.b2{width:220px;height:220px;opacity:.55;background:linear-gradient(135deg,var(--accent-3),var(--accent-2));filter:blur(36px);animation:morph 14s ease-in-out infinite reverse}
+.hero-art .badge{
+  position:relative;z-index:2;background:rgba(255,255,255,.65);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.7);border-radius:24px;padding:26px 30px;box-shadow:var(--shadow-lg);
+  display:flex;flex-direction:column;gap:4px;
+}
+.hero-art .badge b{font-size:34px;font-weight:800}
+.hero-art .badge span{font-size:14px;color:var(--muted);font-weight:500}
+@keyframes morph{
+  0%,100%{border-radius:42% 58% 63% 37% / 41% 44% 56% 59%}
+  33%{border-radius:62% 38% 41% 59% / 57% 63% 37% 43%}
+  66%{border-radius:38% 62% 56% 44% / 49% 38% 62% 51%}
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+
+/* ====== ЛОГО-СТРОКА / СТАТЫ ====== */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:72px;padding-top:40px;border-top:1px solid var(--line)}
+.stat b{display:block;font-size:34px;font-weight:800;letter-spacing:-0.03em}
+.stat span{font-size:14px;color:var(--muted);font-weight:500}
+
+/* ====== СЕКЦИИ ====== */
+section{padding:90px 0}
+.sec-head{margin-bottom:48px;max-width:640px}
+.sec-eyebrow{font-size:14px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.sec-head h2{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-0.03em}
+.sec-head p{margin-top:14px;color:var(--muted);font-size:18px}
+
+/* ====== РАБОТЫ ====== */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;cursor:pointer}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.card-media{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;color:#fff;font-size:50px;font-weight:800;letter-spacing:-0.03em;position:relative}
+.m1{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.m2{background:linear-gradient(135deg,#0EA5E9,#2563EB)}
+.m3{background:linear-gradient(135deg,#EC4899,#8B5CF6)}
+.m4{background:linear-gradient(135deg,#10B981,#0EA5E9)}
+.m5{background:linear-gradient(135deg,#F59E0B,#EC4899)}
+.m6{background:linear-gradient(135deg,#8B5CF6,#0F172A)}
+.card-body{padding:24px 26px}
+.card-body h3{font-size:21px;font-weight:700}
+.card-body p{color:var(--muted);font-size:15px;margin-top:6px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{font-size:13px;font-weight:500;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);padding:5px 12px;border-radius:999px}
+
+/* ====== ОБО МНЕ ====== */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.about-photo{aspect-ratio:1/1;border-radius:var(--radius-lg);background:linear-gradient(135deg,#6366F1,#EC4899);display:flex;align-items:center;justify-content:center;color:#fff;font-size:80px;font-weight:800;box-shadow:var(--shadow-lg)}
+.about-text p{font-size:19px;color:var(--muted);margin-bottom:18px}
+.about-text p strong{color:var(--ink);font-weight:600}
+
+/* ====== НАВЫКИ ====== */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.skill{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.skill:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.skill b{display:block;font-size:18px;font-weight:700}
+.skill span{font-size:14px;color:var(--muted)}
+
+/* ====== КОНТАКТЫ ====== */
+.contact-card{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-radius:32px;padding:72px 56px;text-align:center;box-shadow:var(--shadow-lg)}
+.contact-card .glow{position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.55),transparent 60%);top:-160px;left:50%;transform:translateX(-50%);pointer-events:none}
+.contact-card h2{position:relative;font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-0.03em}
+.contact-card p{position:relative;color:rgba(255,255,255,.7);font-size:19px;margin-top:16px;max-width:440px;margin-inline:auto}
+.contact-mail{position:relative;display:inline-block;margin-top:34px;font-size:clamp(20px,4vw,30px);font-weight:700}
+.contact-mail span{background:linear-gradient(120deg,#a5b4fc,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.socials{position:relative;display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:40px}
+.social{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:12px 20px;border-radius:14px;transition:background .2s,transform .2s}
+.social:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
+.social svg{width:20px;height:20px;fill:currentColor}
+
+/* ====== ПОДВАЛ ====== */
+footer{padding:40px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:14px}
+
+/* ====== АДАПТИВ ====== */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:20px}
+  .hero-art{height:320px;order:-1}
+  .blob{width:300px;height:300px}
+  .about{grid-template-columns:1fr;gap:28px}
+  .skills{grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr);gap:28px}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .contact-card{padding:48px 24px}
+  .skills{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= НАВИГАЦИЯ ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>Имя Фамилия</a>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="#work">Работы</a>
+      <a href="#about">Обо мне</a>
+      <a href="#skills">Навыки</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Связаться</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><span class="live"></span>Открыта для новых проектов</span>
+      <h1>Дизайнер,<br>создаю <span class="grad">сайты и бренды</span>, которые работают</h1>
+      <p class="lead">Веб-дизайн, фирменный стиль и брендбуки — от идеи и логотипа до готового интерфейса. Чисто, современно, по делу.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">
+          Смотреть работы
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Написать мне</a>
+      </div>
+    </div>
+
+    <!-- BLOB -->
+    <div class="hero-art" aria-hidden="true">
+      <div class="blob"></div>
+      <div class="blob b2"></div>
+      <div class="badge">
+        <b>5 лет</b>
+        <span>в дизайне</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>50+</b><span>проектов</span></div>
+      <div class="stat"><b>30+</b><span>клиентов</span></div>
+      <div class="stat"><b>5 лет</b><span>опыта</span></div>
+      <div class="stat"><b>100%</b><span>в срок</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= РАБОТЫ ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Портфолио</div>
+      <h2>Избранные работы</h2>
+      <p>Несколько проектов, которыми горжусь. Кликни, чтобы посмотреть подробнее.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Чтобы вставить своё изображение, замени блок .card-media на:
+           <div class="card-media"><img src="images/proj-1.jpg" alt="Описание проекта" style="width:100%;height:100%;object-fit:cover"></div> -->
+      <a class="card" href="#">
+        <div class="card-media m1">01</div>
+        <div class="card-body">
+          <h3>Название проекта</h3>
+          <p>Лендинг для стартапа — дизайн и вёрстка.</p>
+          <div class="tags"><span class="tag">Web</span><span class="tag">UI/UX</span></div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="card-media m2">02</div>
+        <div class="card-body">
+          <h3>Название проекта</h3>
+          <p>Фирменный стиль и логотип для кофейни.</p>
+          <div class="tags"><span class="tag">Брендинг</span><span class="tag">Лого</span></div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="card-media m3">03</div>
+        <div class="card-body">
+          <h3>Название проекта</h3>
+          <p>Брендбук для IT-компании, 40 страниц.</p>
+          <div class="tags"><span class="tag">Брендбук</span></div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="card-media m4">04</div>
+        <div class="card-body">
+          <h3>Название проекта</h3>
+          <p>Корпоративный сайт-визитка с CMS.</p>
+          <div class="tags"><span class="tag">Web</span><span class="tag">Дизайн</span></div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="card-media m5">05</div>
+        <div class="card-body">
+          <h3>Название проекта</h3>
+          <p>Мобильное приложение — концепт интерфейса.</p>
+          <div class="tags"><span class="tag">UI/UX</span><span class="tag">Mobile</span></div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="card-media m6">06</div>
+        <div class="card-body">
+          <h3>Название проекта</h3>
+          <p>Айдентика и упаковка для бренда косметики.</p>
+          <div class="tags"><span class="tag">Брендинг</span><span class="tag">Упаковка</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ОБО МНЕ ================= -->
+<section id="about" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="about">
+      <!-- заменить на своё фото: <img src="images/me.jpg" alt="Имя Фамилия" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)"> -->
+      <div class="about-photo">★</div>
+      <div class="about-text">
+        <div class="sec-eyebrow">Обо мне</div>
+        <h2 style="font-size:clamp(28px,4.5vw,40px);font-weight:800;letter-spacing:-0.03em;margin-bottom:22px">Привет! Меня зовут Имя</h2>
+        <p>Я дизайнер с фокусом на <strong>веб и брендинг</strong>. Создаю цельные решения — от логотипа и фирменного стиля до готового сайта.</p>
+        <p>Люблю чистые сетки, сильную типографику и дизайн, который <strong>решает задачу бизнеса</strong>, а не просто красиво выглядит. Работаю в Figma, Adobe и Webflow.</p>
+        <p>Открыта к проектам и сотрудничеству — от разовых задач до постоянной работы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= НАВЫКИ ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Стек</div>
+      <h2>Навыки и инструменты</h2>
+    </div>
+    <div class="skills">
+      <div class="skill"><b>Figma</b><span>UI/UX · Прототипы</span></div>
+      <div class="skill"><b>Photoshop</b><span>Растр · Ретушь</span></div>
+      <div class="skill"><b>Illustrator</b><span>Вектор · Лого</span></div>
+      <div class="skill"><b>Webflow</b><span>No-code сайты</span></div>
+      <div class="skill"><b>Веб-дизайн</b><span>Лендинги · Сайты</span></div>
+      <div class="skill"><b>Брендинг</b><span>Айдентика</span></div>
+      <div class="skill"><b>Брендбук</b><span>Гайдлайны</span></div>
+      <div class="skill"><b>HTML / CSS</b><span>Вёрстка</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КОНТАКТЫ ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div class="glow"></div>
+      <h2>Давай поработаем вместе</h2>
+      <p>Есть проект или вакансия? Напиши — отвечу в течение дня.</p>
+      <a class="contact-mail" href="mailto:you@example.com">→ <span>you@example.com</span></a>
+      <div class="socials">
+        <a class="social" href="mailto:you@example.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>
+          Email
+        </a>
+        <a class="social" href="https://www.behance.net/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
+          Behance
+        </a>
+        <a class="social" href="https://t.me/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram
+        </a>
+        <a class="social" href="https://dribbble.com/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12c6.602 0 12-5.385 12-12S18.602 0 12 0zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1.001 4.165-2.395 5.548-4.166 1.363 1.43 2.198 3.366 2.322 5.919zm-3.842-7.282c-1.205 1.554-2.868 2.808-4.972 3.745-1.087-1.997-2.290-3.642-3.598-4.911 1.336-.32 2.731-.498 4.182-.498 1.595 0 3.103.231 4.388.664zM7.527 3.917c1.331 1.266 2.535 2.892 3.623 4.876-2.852.755-6.022 1.149-9.498 1.149-.044 0-.085 0-.129 0 .684-2.616 2.531-4.835 5.004-6.025zm-5.51 8.082c.046 0 .092 0 .138 0 3.787 0 7.214-.474 10.298-1.422.272.536.521 1.083.748 1.638-3.397 1.044-6.358 3.245-8.598 6.45-1.572-1.745-2.585-4.018-2.586-6.666zm3.949 7.972c2.013-2.952 4.692-4.97 7.842-5.953.787 2.024 1.395 4.167 1.834 6.403-1.301.582-2.741.901-4.255.901-1.918 0-3.708-.516-5.421-1.351zm9.058.532c-.402-2.063-.965-4.045-1.684-5.93 1.94-.312 4.012-.244 6.213.207-.535 2.491-1.93 4.681-3.529 5.723z"/></svg>
+          Dribbble
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Имя Фамилия</span>
+  <span>Дизайн · Веб · Брендинг</span>
+</footer>
+
+</body>
+</html>
